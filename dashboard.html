@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plutus TalentX - Resume & JD Analyzer</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #e60000;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    input, textarea, button {
+      margin: 10px;
+      padding: 10px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    input[type="file"] {
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    textarea {
+      height: 200px;
+      resize: none;
+    }
+
+    button {
+      background-color: #e60000;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+    }
+
+    pre {
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 20px;
+      text-align: left;
+      white-space: pre-wrap;
+      width: 70%;
+      margin: 20px auto;
+      border-left: 5px solid #e60000;
+    }
+
+    h2 {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 Plutus TalentX</h1>
+  <p>The Smart JD–Resume Matching Assistant</p>
+
+  <form action="/analyze-resume" method="post" enctype="multipart/form-data">
+    <label><strong>Upload Resume File:</strong></label><br>
+    <input type="file" name="resume" required><br><br>
+
+    <label><strong>Paste Job Description (JD):</strong></label><br>
+    <textarea name="jd_text" placeholder="Paste the JD here..." required></textarea><br><br>
+
+    <button type="submit">Analyze Resume Against JD</button>
+  </form>
+
+  {% if result %}
+    <h2>AI Report</h2>
+    <pre>{{ result }}</pre>
+  {% endif %}
+
+</body>
+</html>
